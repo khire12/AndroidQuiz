@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();
-        if(!TextUtils.isEmpty(email) || !TextUtils.isEmpty(password)) {
+        if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
