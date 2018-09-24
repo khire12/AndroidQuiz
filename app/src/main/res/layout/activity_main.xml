@@ -12,9 +12,9 @@
 
         <RelativeLayout
 
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_margin="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -48,6 +48,7 @@
                     app:met_floatingLabel="highlight"
                     app:met_primaryColor="@color/colorPrimary"
                     app:met_singleLineEllipsis="true"
+
                     />
 
                 <com.rengwuxian.materialedittext.MaterialEditText
@@ -86,7 +87,10 @@
                     android:layout_weight="1"
                     android:layout_marginHorizontal="10dp"
                     android:background="@drawable/rounded_corner_black"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:elevation="4dp"
+                    android:translationZ="4dp"
+                    android:stateListAnimator="@null"/>
 
                 <Button
                     android:id="@+id/btn_sign_in"
@@ -96,7 +100,10 @@
                     android:layout_weight="1"
                     android:layout_marginHorizontal="10dp"
                     android:background="@drawable/rounded_corner_black"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:elevation="4dp"
+                    android:translationZ="4dp"
+                    android:stateListAnimator="@null"/>
             </LinearLayout>
 
         </RelativeLayout>
