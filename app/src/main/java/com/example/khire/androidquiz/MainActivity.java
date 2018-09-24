@@ -1,6 +1,7 @@
 package com.example.khire.androidquiz;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -157,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
                                 //Toast.makeText(MainActivity.this,"User login successful!",Toast.LENGTH_SHORT).show();
                                 Snackbar snackbar = Snackbar.make(getCurrentFocus(), "User login successful", Snackbar.LENGTH_LONG);
                                 snackbar.show();
+                                startActivity(new Intent(getApplicationContext(),DashboardActivity.class));
+                                overridePendingTransition(R.anim.fui_slide_in_right,R.anim.fui_slide_out_left);
                             } else {
                                 //Toast.makeText(MainActivity.this,"login failed",Toast.LENGTH_SHORT).show();
                                 Snackbar snackbar = Snackbar.make(getCurrentFocus(), "Login failed", Snackbar.LENGTH_LONG);
