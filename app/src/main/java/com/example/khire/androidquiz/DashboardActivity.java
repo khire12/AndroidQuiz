@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.rengwuxian.materialedittext.MaterialMultiAutoCompleteTextView;
 
 public class DashboardActivity extends AppCompatActivity {
 
@@ -40,6 +42,18 @@ public class DashboardActivity extends AppCompatActivity {
             }
         });
 
+
+        instr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(DashboardActivity.this,InstructionActivity.class));
+                overridePendingTransition(R.anim.fui_slide_in_right,R.anim.fui_slide_out_left);
+
+            }
+        });
+
+
     }
 
 
@@ -49,5 +63,8 @@ public class DashboardActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(),"Press SignOut to sign-out",Toast.LENGTH_SHORT).show();
+    }
 }

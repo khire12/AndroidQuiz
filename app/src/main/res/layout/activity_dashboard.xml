@@ -25,14 +25,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-        <android.support.v7.widget.AppCompatMultiAutoCompleteTextView
+        <android.support.v7.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:cursorVisible="false"
+
             android:layout_height="77dp"
             android:background="@color/fui_linkColor"
             android:text="Dashboard"
             android:textAlignment="center"
-            android:textColor="@color/cardview_dark_background"
+            android:gravity="center"
+            android:textColor="@color/cardview_light_background"
             android:translationZ="4dp"
             android:stateListAnimator="@null"
             android:textSize="30sp" />
@@ -46,7 +48,7 @@
         android:stateListAnimator="@null"
         android:text="Start Test"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textColor="@color/cardview_light_background"
         android:elevation="4dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/rounded_corner_blue" />
@@ -61,7 +63,7 @@
         android:text="Instructions"
         android:elevation="4dp"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textColor="@color/cardview_light_background"
         android:layout_marginTop="60dp"
         android:background="@drawable/rounded_corner_blue" />
     <Button
@@ -74,7 +76,7 @@
         android:text="sign out"
         android:elevation="4dp"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:textColor="@color/cardview_light_background"
         android:layout_marginTop="60dp"
         android:background="@drawable/rounded_corner_blue" />
 </LinearLayout>

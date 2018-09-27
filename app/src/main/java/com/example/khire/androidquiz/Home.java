@@ -1,8 +1,10 @@
 package com.example.khire.androidquiz;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,8 +31,9 @@ public class Home extends AppCompatActivity {
     RadioGroup radioGroup;
     RadioButton rans,r1,r2,r3,r4;
     String answer,rightanswer;
-
+    boolean limitReached;
     static int index = 0;
+    static int qsno = 1;
     static final ArrayList<String> arrayList = new ArrayList<>();
 
     @Override
@@ -38,6 +42,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
 
+        limitReached = false;
         save = findViewById(R.id.save);
         next = findViewById(R.id.next);
         qsNo = findViewById(R.id.quesNo);
@@ -59,8 +64,13 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                saveAndScore();
+                if(rans == null){
+                    Toast.makeText(getApplicationContext(),"Select a choice",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    saveAndScore();
 
+                }
             }
         });
 
@@ -68,7 +78,18 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                updateQuestion();
+                if(limitReached==false) {
+                    if (rans == null) {
+                        Toast.makeText(getApplicationContext(), "Select a choice", Toast.LENGTH_SHORT).show();
+                    } else {
+                        updateQuestion();
+                    }
+                }
+                else{
+                    //go to new activity
+                    startActivity(new Intent(Home.this,TextBased.class));
+                    overridePendingTransition(R.anim.fui_slide_in_right,R.anim.fui_slide_out_left);
+                }
             }
         });
 
@@ -90,17 +111,17 @@ public class Home extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                    for(int i=1;i<=5;i++) {
-                        for (DataSnapshot postSnapshot : dataSnapshot.child("q"+i).getChildren()) {
+                    for(int i=1;;i++) {
+                        if(dataSnapshot.child("q"+i).exists() == false) {
+                            break;
+                        }
+                        for (DataSnapshot postSnapshot : dataSnapshot.child("q" + i).getChildren()) {
 
                             arrayList.add(postSnapshot.getValue().toString());
                             Log.e("Added value", postSnapshot.getValue().toString());
                         }
-                    }
-                    Log.e("size", String.valueOf(arrayList.size()));
-                    for (int i = 0; i < arrayList.size(); i++)
-                        Log.e("TAG", arrayList.get(i));
 
+                    }
                     displayMcq();
                 }
             @Override
@@ -111,7 +132,7 @@ public class Home extends AppCompatActivity {
     }
 
     private void displayMcq(){
-            qsNo.setText(String.valueOf(index + 1));
+            qsNo.setText(String.valueOf(index/6 + 1));
             if(arrayList.size()!=0) {
                 Log.e("q in disMcq", arrayList.get(index).toString());
                 qsDesc.setText(arrayList.get(index+0).toString());
@@ -130,10 +151,22 @@ public class Home extends AppCompatActivity {
 
      private void updateQuestion(){
         try {
-            saveAndScore();
-            index = index + 6;
-            displayMcq();
-            radioGroup.clearCheck();
+            if(rans == null){
+                Toast.makeText(getApplicationContext(),"Select a choice",Toast.LENGTH_SHORT).show();
+            }
+            else {
+
+                if(qsno==5){
+                    limitReached = true;
+                }
+                else {
+                    saveAndScore();
+                    index = index + 6;
+                    displayMcq();
+                    radioGroup.clearCheck();
+                    qsno++;
+                }
+            }
         }
         catch (IndexOutOfBoundsException e){
             e.printStackTrace();
@@ -142,13 +175,11 @@ public class Home extends AppCompatActivity {
 
 
      private void saveAndScore(){
-
-        if(answer.equalsIgnoreCase(rightanswer)){
-            Toast.makeText(Home.this,"Correct",Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(Home.this,"Wrong",Toast.LENGTH_SHORT).show();
-        }
+            if (answer.equalsIgnoreCase(rightanswer)) {
+                Toast.makeText(Home.this, "Correct", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(Home.this, "Wrong", Toast.LENGTH_SHORT).show();
+            }
      }
 
 
