@@ -10,7 +10,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="378dp"
-        android:layout_height="592dp"
+        android:layout_height="550dp"
         app:cardElevation="6dp"
         android:translationZ="4dp"
         android:stateListAnimator="@null"
@@ -28,10 +28,9 @@
         <android.support.v7.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:cursorVisible="false"
-
             android:layout_height="77dp"
             android:background="@color/fui_linkColor"
-            android:text="Dashboard"
+            android:text="@string/header"
             android:textAlignment="center"
             android:gravity="center"
             android:textColor="@color/cardview_light_background"
@@ -46,8 +45,8 @@
         android:layout_marginLeft="110dp"
         android:translationZ="4dp"
         android:stateListAnimator="@null"
-        android:text="Start Test"
-        android:textSize="20sp"
+        android:text="@string/Start"
+        android:textSize="15sp"
         android:textColor="@color/cardview_light_background"
         android:elevation="4dp"
         android:layout_marginTop="60dp"
@@ -60,25 +59,41 @@
         android:translationZ="4dp"
         android:stateListAnimator="@null"
         android:layout_marginLeft="110dp"
-        android:text="Instructions"
+        android:text="@string/Instheader"
         android:elevation="4dp"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textColor="@color/cardview_light_background"
         android:layout_marginTop="60dp"
         android:background="@drawable/rounded_corner_blue" />
+
+    <Button
+        android:id="@+id/lang"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:stateListAnimator="@null"
+        android:layout_marginLeft="110dp"
+        android:elevation="4dp"
+        android:textSize="15sp"
+        android:textColor="@color/cardview_light_background"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_corner_blue"
+        android:text="@string/LANG"
+        android:translationZ="4dp" />
+
     <Button
         android:id="@+id/sign_out"
         android:layout_width="170dp"
         android:layout_height="50dp"
-        android:translationZ="4dp"
-        android:stateListAnimator="@null"
         android:layout_marginLeft="110dp"
-        android:text="sign out"
-        android:elevation="4dp"
-        android:textSize="20sp"
-        android:textColor="@color/cardview_light_background"
         android:layout_marginTop="60dp"
-        android:background="@drawable/rounded_corner_blue" />
+        android:background="@drawable/rounded_corner_yellow"
+        android:elevation="4dp"
+        android:stateListAnimator="@null"
+        android:text="@string/Out"
+        android:textStyle="bold"
+        android:textColor="@color/colorRed"
+        android:textSize="20sp"
+        android:translationZ="4dp" />
 </LinearLayout>
 
         </android.support.v7.widget.CardView>

@@ -50,32 +50,38 @@
         android:id="@+id/answerText"
         android:layout_width="382dp"
         android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="280dp"
         android:background="@drawable/rounded_corner"
-        android:hint="Enter answer here"
-        android:textSize="24sp"
-        android:layout_marginBottom="181dp"
         android:gravity="center"
+        android:hint="Enter answer here"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quesText1"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/speak"
         android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="SAVE"
         android:background="@drawable/rounded_corner"
+        android:text="speak"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/next"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answerText"
-      />
+        app:layout_constraintVertical_bias="0.254" />
 
     <Button
         android:id="@+id/next"
@@ -85,15 +91,30 @@
         android:layout_marginEnd="24dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="NEXT"
+        android:background="@drawable/rounded_corner"
+        android:text="@string/next"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:background="@drawable/rounded_corner"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/save"
+        app:layout_constraintStart_toEndOf="@+id/speak"
         app:layout_constraintTop_toBottomOf="@+id/answerText"
-        />
+        app:layout_constraintVertical_bias="0.254" />
+
+    <Button
+        android:id="@+id/listen"
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="31dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginStart="135dp"
+        android:background="@drawable/rounded_corner"
+        android:text="@string/listenq"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

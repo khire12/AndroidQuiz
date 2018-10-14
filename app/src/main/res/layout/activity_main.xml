@@ -8,11 +8,24 @@
     tools:context=".MainActivity">
 
 
+    <TextView
+        android:layout_width="277dp"
+        android:layout_height="95dp"
+        android:layout_marginTop="55dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:text="APS\nCognitive ability Test"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:background="@drawable/rounded_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
         <RelativeLayout
 
-
+            android:id="@+id/rela"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"

@@ -5,10 +5,12 @@ public class User {
     private String password;
     private String email;
 
+
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
+
     }
 
     public String getUsername() {
@@ -34,4 +36,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

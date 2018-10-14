@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background"
+    tools:context=".ResultActivity">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="502dp"
+        android:stateListAnimator="@null"
+        android:translationZ="6dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.496">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/result"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/rounded_corner_blue"
+                android:gravity="center"
+                android:text="Result"
+                android:textAlignment="center"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="40sp" />
+
+            <TextView
+                android:id="@+id/marks"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
+                android:layout_alignBottom="@+id/result"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginBottom="-134dp"
+                android:background="@drawable/rounded_corner_blue"
+                android:gravity="center"
+                android:hint="Marks"
+                android:textAlignment="center"
+                android:textColor="@color/cardview_light_background"
+                android:textSize="60sp" />
+
+            <Button
+                android:id="@+id/go_to_dashboard"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="126dp"
+                android:layout_marginStart="126dp"
+                android:layout_marginRight="131dp"
+                android:layout_marginBottom="113dp"
+                android:background="@drawable/rounded_corner_black"
+                android:text="DashBoard"
+                android:textColor="@color/cardview_light_background" />
+
+            <Button
+                android:id="@+id/more_about_you"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="22dp"
+                android:layout_marginEnd="77dp"
+                android:layout_marginStart="77dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginBottom="42dp"
+                android:background="@drawable/rounded_corner_black"
+                android:text="Explore Yourself"
+                android:textColor="@color/cardview_light_background" />
+
+
+        </RelativeLayout>
+
+
+
+    </android.support.v7.widget.CardView>
+
+
+</android.support.constraint.ConstraintLayout>

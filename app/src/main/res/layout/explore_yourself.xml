@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_dark_background">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/your_evaluation"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_alignStart="@+id/desc"
+            android:layout_marginStart="0dp"
+            android:textSize="40sp"
+            android:gravity="center"
+            android:hint="result"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_corner" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="350dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:hint="after result"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/rounded_corner" />
+
+
+        <Button
+            android:id="@+id/ok"
+            android:layout_width="135dp"
+            android:layout_height="59dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="222dp"
+            android:background="@drawable/rounded_corner"
+            android:text="OK"
+            android:textSize="25sp" />
+
+    </RelativeLayout>
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>

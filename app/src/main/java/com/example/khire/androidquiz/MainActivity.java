@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                         else{
                             users.child(user.getUsername()).setValue(user);
                             //Toast.makeText(MainActivity.this,"User registeration successful!",Toast.LENGTH_SHORT).show();
-
                             createUser();
                         }
                     }
@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
                            // Toast.makeText(MainActivity.this,"User registeration successful!",Toast.LENGTH_SHORT).show();
                             Snackbar snackbar = Snackbar.make(getCurrentFocus(),"User registeration successful!",Snackbar.LENGTH_LONG);
                             snackbar.show();
+
                         }
                         else{
                             //Toast.makeText(MainActivity.this,"Registeration failed",Toast.LENGTH_SHORT).show();
@@ -158,8 +159,11 @@ public class MainActivity extends AppCompatActivity {
                                 //Toast.makeText(MainActivity.this,"User login successful!",Toast.LENGTH_SHORT).show();
                                 Snackbar snackbar = Snackbar.make(getCurrentFocus(), "User login successful", Snackbar.LENGTH_LONG);
                                 snackbar.show();
-                                startActivity(new Intent(getApplicationContext(),DashboardActivity.class));
+                                Intent i = new Intent(getApplicationContext(),DashboardActivity.class);
+                                startActivity(i);
+                                finish();
                                 overridePendingTransition(R.anim.fui_slide_in_right,R.anim.fui_slide_out_left);
+
                             } else {
                                 //Toast.makeText(MainActivity.this,"login failed",Toast.LENGTH_SHORT).show();
                                 Snackbar snackbar = Snackbar.make(getCurrentFocus(), "Login failed", Snackbar.LENGTH_LONG);
@@ -174,4 +178,31 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+        alertDialogBuilder.setTitle("Quit");
+        alertDialogBuilder.setMessage("Do you want to quit?");
+
+
+        alertDialogBuilder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finishAffinity();
+            }
+        });
+        alertDialogBuilder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.setTitle("Quit");
+        alert.show();
+    }
 }
